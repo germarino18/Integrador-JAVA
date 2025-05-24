@@ -5,84 +5,145 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Sucursal extends Base {
-    private String nombre;
-    private LocalTime horarioApertura;
-    private LocalTime horarioCierre;
-    private Empresa empresa;
-    private Domicilio domicilio;
-    private Set<Promocion> promociones = new HashSet<>();;
-    private Set<Categoria> categorias = new HashSet<>();;
-    private Set<Pedido> pedidos = new HashSet<>();;
+	private String nombre;
+	private LocalTime horarioApertura;
+	private LocalTime horarioCierre;
+	private Domicilio domicilio;
+	private Set<Promocion> promociones = new HashSet<>();;
+	private Set<Categoria> categorias = new HashSet<>();;
+	private Set<Pedido> pedidos = new HashSet<>();;
 
-    //Constructor
-    public Sucursal(String nombre, LocalTime horarioCierre, LocalTime horarioApertura) {
-        this.nombre = nombre;
-        this.horarioCierre = horarioCierre;
-        this.horarioApertura = horarioApertura;
-    }
+	// Constructor
 
-    //Getter y Setter
-    public String getNombre() {
-        return nombre;
-    }
+	public Sucursal(long id, String nombre, LocalTime horarioApertura, LocalTime horarioCierre, Domicilio domicilio,
+			Set<Promocion> promociones, Set<Categoria> categorias, Set<Pedido> pedidos) {
+		super(id);
+		this.nombre = nombre;
+		this.horarioApertura = horarioApertura;
+		this.horarioCierre = horarioCierre;
+		this.domicilio = domicilio;
+		this.promociones = promociones;
+		this.categorias = categorias;
+		this.pedidos = pedidos;
+	}
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+	public Sucursal(long id, String nombre, LocalTime horarioApertura, LocalTime horarioCierre, Domicilio domicilio,
+			Set<Promocion> promociones, Set<Categoria> categorias) {
+		super(id);
+		this.nombre = nombre;
+		this.horarioApertura = horarioApertura;
+		this.horarioCierre = horarioCierre;
+		this.domicilio = domicilio;
+		this.promociones = promociones;
+		this.categorias = categorias;
+	}
 
-    public LocalTime getHorarioApertura() {
-        return horarioApertura;
-    }
+	public Sucursal(long id, String nombre, LocalTime horarioApertura, LocalTime horarioCierre, Domicilio domicilio,
+			Set<Promocion> promociones) {
+		super(id);
+		this.nombre = nombre;
+		this.horarioApertura = horarioApertura;
+		this.horarioCierre = horarioCierre;
+		this.domicilio = domicilio;
+		this.promociones = promociones;
+	}
 
-    public void setHorarioApertura(LocalTime horarioApertura) {
-        this.horarioApertura = horarioApertura;
-    }
+	public Sucursal(long id, String nombre, LocalTime horarioApertura, LocalTime horarioCierre, Domicilio domicilio) {
+		super(id);
+		this.nombre = nombre;
+		this.horarioApertura = horarioApertura;
+		this.horarioCierre = horarioCierre;
+		this.domicilio = domicilio;
+	}
 
-    public LocalTime getHorarioCierre() {
-        return horarioCierre;
-    }
+	// Getter y Setter
+	public String getNombre() {
+		return nombre;
+	}
 
-    public void setHorarioCierre(LocalTime horarioCierre) {
-        this.horarioCierre = horarioCierre;
-    }
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 
-    public Empresa getEmpresa() {
-        return empresa;
-    }
+	public LocalTime getHorarioApertura() {
+		return horarioApertura;
+	}
 
-    public void setEmpresa(Empresa empresa) {
-        this.empresa = empresa;
-    }
+	public void setHorarioApertura(LocalTime horarioApertura) {
+		this.horarioApertura = horarioApertura;
+	}
 
-    public Domicilio getDomicilio() {
-        return domicilio;
-    }
+	public LocalTime getHorarioCierre() {
+		return horarioCierre;
+	}
 
-    public void setDomicilio(Domicilio domicilio) {
-        this.domicilio = domicilio;
-    }
+	public void setHorarioCierre(LocalTime horarioCierre) {
+		this.horarioCierre = horarioCierre;
+	}
 
-    public Set<Promocion> getPromociones() {
-        return promociones;
-    }
+	public Domicilio getDomicilio() {
+		return domicilio;
+	}
 
-    public void setPromociones(Set<Promocion> promociones) {
-        this.promociones = promociones;
-    }
+	public void setDomicilio(Domicilio domicilio) {
+		this.domicilio = domicilio;
+	}
 
-    public Set<Categoria> getCategorias() {
-        return categorias;
-    }
+	public Set<Promocion> getPromociones() {
+		return promociones;
+	}
 
-    public void setCategorias(Set<Categoria> categorias) {
-        this.categorias = categorias;
-    }
+	public void setPromociones(Set<Promocion> promociones) {
+		this.promociones = promociones;
+	}
 
-    public Set<Pedido> getPedidos() {
-        return pedidos;
-    }
+	public Set<Categoria> getCategorias() {
+		return categorias;
+	}
 
-    public void setPedidos(Set<Pedido> pedidos) {
-        this.pedidos = pedidos;
-    }
+	public void setCategorias(Set<Categoria> categorias) {
+		this.categorias = categorias;
+	}
+
+	public Set<Pedido> getPedidos() {
+		return pedidos;
+	}
+
+	public void setPedidos(Set<Pedido> pedidos) {
+		this.pedidos = pedidos;
+	}
+
+	// Metodos
+
+	public void agregarPromocion(Promocion promocion) {
+		promociones.add(promocion);
+	}
+
+	public void removerPromocion(Promocion promocion) {
+		promociones.remove(promocion);
+	}
+
+	public void agregarPedido(Pedido pedido) {
+		pedidos.add(pedido);
+	}
+
+	public void removerPedido(Pedido pedido) {
+		pedidos.remove(pedido);
+	}
+
+	public void agregarCategoria(Categoria categoria) {
+		categorias.add(categoria);
+	}
+
+	public void removerCategoria(Categoria categoria) {
+		categorias.remove(categoria);
+	}
+
+	@Override
+	public String toString() {
+		return "\nSucursal nombre=" + nombre + ", horarioApertura=" + horarioApertura + ", horarioCierre="
+				+ horarioCierre + ", domicilio=" + domicilio + ", promociones=" + promociones + ", categorias="
+				+ categorias + ", pedidos=" + pedidos;
+	}
+
 }

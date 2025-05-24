@@ -1,37 +1,34 @@
 package Entities;
 
 public class ArticuloManufacturadoDetalle {
-    private int cantidad;
-    private ArticuloManufacturado articuloManufacturado;
-    private ArticuloInsumo insumo;
+	private int cantidad;
+	private ArticuloInsumo insumo;
 
-    //Constructor
-    public ArticuloManufacturadoDetalle(int cantidad) {
-        this.cantidad = cantidad;
-    }
+	// Constructor
+	public ArticuloManufacturadoDetalle(int cantidad) {
+		this.cantidad = cantidad;
+	}
 
-    //Getter y Setter
-    public int getCantidad() {
-        return cantidad;
-    }
+	// Getter y Setter
+	public int getCantidad() {
+		return cantidad;
+	}
 
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
-    }
+	public void setCantidad(int cantidad) {
+		this.cantidad = cantidad;
+	}
 
-    public ArticuloManufacturado getArticuloManufacturado() {
-        return articuloManufacturado;
-    }
+	public ArticuloInsumo getInsumo() {
+		return insumo;
+	}
 
-    public void setArticuloManufacturado(ArticuloManufacturado articuloManufacturado) {
-        this.articuloManufacturado = articuloManufacturado;
-    }
+	public void setInsumo(ArticuloInsumo insumo) {
+		this.insumo = insumo;
+	}
 
-    public ArticuloInsumo getInsumo() {
-        return insumo;
-    }
+	@Override
+	public String toString() {
+		return "\nArticuloManufacturadoDetalle [cantidad=" + cantidad + ", insumo=" + insumo + "]";
+	}
 
-    public void setInsumo(ArticuloInsumo insumo) {
-        this.insumo = insumo;
-    }
 }

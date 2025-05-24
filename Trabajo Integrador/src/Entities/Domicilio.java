@@ -1,78 +1,64 @@
 package Entities;
 
-import java.util.HashSet;
-import java.util.Set;
-
 public class Domicilio extends Base {
-    private String calle;
-    private int numero;
-    private int cp;
-    private Sucursal sucursal;
-    private Localidad localidad;
-    private Set<Pedido> pedidos = new HashSet<>();;
-    private Set<Cliente> clientes = new HashSet<>();;
+	private String calle;
+	private int numero;
+	private int cp;
+	private Localidad localidad;
 
-    //Constructor
-    public Domicilio(String calle, int numero, int cp) {
-        this.calle = calle;
-        this.numero = numero;
-        this.cp = cp;
-    }
+	// Constructor
 
-    //Getter y Setter
-    public String getCalle() {
-        return calle;
-    }
+	public Domicilio(long id, String calle, int numero, int cp, Localidad localidad) {
+		super(id);
+		this.calle = calle;
+		this.numero = numero;
+		this.cp = cp;
+		this.localidad = localidad;
+	}
 
-    public void setCalle(String calle) {
-        this.calle = calle;
-    }
+	public Domicilio(long id, String calle, int numero, int cp) {
+		super(id);
+		this.calle = calle;
+		this.numero = numero;
+		this.cp = cp;
+	}
 
-    public int getNumero() {
-        return numero;
-    }
+	// Getter y Setter
+	public String getCalle() {
+		return calle;
+	}
 
-    public void setNumero(int numero) {
-        this.numero = numero;
-    }
+	public void setCalle(String calle) {
+		this.calle = calle;
+	}
 
-    public int getCp() {
-        return cp;
-    }
+	public int getNumero() {
+		return numero;
+	}
 
-    public void setCp(int cp) {
-        this.cp = cp;
-    }
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
 
-    public Sucursal getSucursal() {
-        return sucursal;
-    }
+	public int getCp() {
+		return cp;
+	}
 
-    public void setSucursal(Sucursal sucursal) {
-        this.sucursal = sucursal;
-    }
+	public void setCp(int cp) {
+		this.cp = cp;
+	}
 
-    public Localidad getLocalidad() {
-        return localidad;
-    }
+	public Localidad getLocalidad() {
+		return localidad;
+	}
 
-    public void setLocalidad(Localidad localidad) {
-        this.localidad = localidad;
-    }
+	public void setLocalidad(Localidad localidad) {
+		this.localidad = new Localidad(0); //se inicializa el ID localidad en 0
+	}
 
-    public Set<Pedido> getPedidos() {
-        return pedidos;
-    }
+	@Override
+	public String toString() {
+		return "\nDomicilio calle=" + calle + ", numero=" + numero + ", cp=" + cp + ", localidad=" + localidad;
+	}
 
-    public void setPedidos(Set<Pedido> pedidos) {
-        this.pedidos = pedidos;
-    }
-
-    public Set<Cliente> getClientes() {
-        return clientes;
-    }
-
-    public void setClientes(Set<Cliente> clientes) {
-        this.clientes = clientes;
-    }
 }

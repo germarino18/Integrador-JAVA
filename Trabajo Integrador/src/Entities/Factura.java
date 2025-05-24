@@ -4,89 +4,114 @@ import Enums.FormaPago;
 
 import java.time.LocalDate;
 
-public class Factura extends Base{
-    private LocalDate fechaFacturacion;
-    private int mpPaymentId;
-    private int mpMerchantOrderId;
-    private String mpPreferenceId;
-    private String mpPaymentType;
-    private FormaPago formaPago;
-    private double totalVenta;
-    private Pedido pedido;
+public class Factura extends Base {
+	private LocalDate fechaFacturacion;
+	private int mpPaymentId;
+	private int mpMerchantOrderId;
+	private String mpPreferenceId;
+	private String mpPaymentType;
+	private FormaPago formaPago;
+	private double totalVenta;
+	private Pedido pedido;
 
-    //Constructor
-    public Factura(LocalDate fechaFacturacion, int mpPaymentId, int mpMerchantOrderId, String mpPreferenceId, String mpPaymentType, FormaPago formaPago, double totalVenta) {
-        this.fechaFacturacion = fechaFacturacion;
-        this.mpPaymentId = mpPaymentId;
-        this.mpMerchantOrderId = mpMerchantOrderId;
-        this.mpPreferenceId = mpPreferenceId;
-        this.mpPaymentType = mpPaymentType;
-        this.formaPago = formaPago;
-        this.totalVenta = totalVenta;
-    }
+	// Constructor
 
-    //Getter y Setter
-    public LocalDate getFechaFacturacion() {
-        return fechaFacturacion;
-    }
+	public Factura(long id, LocalDate fechaFacturacion, int mpPaymentId, int mpMerchantOrderId, String mpPreferenceId,
+			String mpPaymentType, FormaPago formaPago, double totalVenta, Pedido pedido) {
+		super(id);
+		this.fechaFacturacion = fechaFacturacion;
+		this.mpPaymentId = mpPaymentId;
+		this.mpMerchantOrderId = mpMerchantOrderId;
+		this.mpPreferenceId = mpPreferenceId;
+		this.mpPaymentType = mpPaymentType;
+		this.formaPago = formaPago;
+		this.totalVenta = totalVenta;
+		this.pedido = pedido;
+	}
 
-    public void setFechaFacturacion(LocalDate fechaFacturacion) {
-        this.fechaFacturacion = fechaFacturacion;
-    }
+	public Factura(long id, LocalDate fechaFacturacion, int mpPaymentId, int mpMerchantOrderId, String mpPreferenceId,
+			String mpPaymentType, FormaPago formaPago, double totalVenta) {
+		super(id);
+		this.fechaFacturacion = fechaFacturacion;
+		this.mpPaymentId = mpPaymentId;
+		this.mpMerchantOrderId = mpMerchantOrderId;
+		this.mpPreferenceId = mpPreferenceId;
+		this.mpPaymentType = mpPaymentType;
+		this.formaPago = formaPago;
+		this.totalVenta = totalVenta;
+	}
 
-    public int getMpPaymentId() {
-        return mpPaymentId;
-    }
+	// Getter y Setter
 
-    public void setMpPaymentId(int mpPaymentId) {
-        this.mpPaymentId = mpPaymentId;
-    }
+	public LocalDate getFechaFacturacion() {
+		return fechaFacturacion;
+	}
 
-    public int getMpMerchantOrderId() {
-        return mpMerchantOrderId;
-    }
+	public void setFechaFacturacion(LocalDate fechaFacturacion) {
+		this.fechaFacturacion = fechaFacturacion;
+	}
 
-    public void setMpMerchantOrderId(int mpMerchantOrderId) {
-        this.mpMerchantOrderId = mpMerchantOrderId;
-    }
+	public int getMpPaymentId() {
+		return mpPaymentId;
+	}
 
-    public String getMpPreferenceId() {
-        return mpPreferenceId;
-    }
+	public void setMpPaymentId(int mpPaymentId) {
+		this.mpPaymentId = mpPaymentId;
+	}
 
-    public void setMpPreferenceId(String mpPreferenceId) {
-        this.mpPreferenceId = mpPreferenceId;
-    }
+	public int getMpMerchantOrderId() {
+		return mpMerchantOrderId;
+	}
 
-    public String getMpPaymentType() {
-        return mpPaymentType;
-    }
+	public void setMpMerchantOrderId(int mpMerchantOrderId) {
+		this.mpMerchantOrderId = mpMerchantOrderId;
+	}
 
-    public void setMpPaymentType(String mpPaymentType) {
-        this.mpPaymentType = mpPaymentType;
-    }
+	public String getMpPreferenceId() {
+		return mpPreferenceId;
+	}
 
-    public FormaPago getFormaPago() {
-        return formaPago;
-    }
+	public void setMpPreferenceId(String mpPreferenceId) {
+		this.mpPreferenceId = mpPreferenceId;
+	}
 
-    public void setFormaPago(FormaPago formaPago) {
-        this.formaPago = formaPago;
-    }
+	public String getMpPaymentType() {
+		return mpPaymentType;
+	}
 
-    public double getTotalVenta() {
-        return totalVenta;
-    }
+	public void setMpPaymentType(String mpPaymentType) {
+		this.mpPaymentType = mpPaymentType;
+	}
 
-    public void setTotalVenta(double totalVenta) {
-        this.totalVenta = totalVenta;
-    }
+	public FormaPago getFormaPago() {
+		return formaPago;
+	}
 
-    public Pedido getPedido() {
-        return pedido;
-    }
+	public void setFormaPago(FormaPago formaPago) {
+		this.formaPago = formaPago;
+	}
 
-    public void setPedido(Pedido pedido) {
-        this.pedido = pedido;
-    }
+	public double getTotalVenta() {
+		return totalVenta;
+	}
+
+	public void setTotalVenta(double totalVenta) {
+		this.totalVenta = totalVenta;
+	}
+
+	public Pedido getPedido() {
+		return pedido;
+	}
+
+	public void setPedido(Pedido pedido) {
+		this.pedido = pedido;
+	}
+
+	@Override
+	public String toString() {
+		return "\nFactura [fechaFacturacion=" + fechaFacturacion + ", mpPaymentId=" + mpPaymentId + ", mpMerchantOrderId="
+				+ mpMerchantOrderId + ", mpPreferenceId=" + mpPreferenceId + ", mpPaymentType=" + mpPaymentType
+				+ ", formaPago=" + formaPago + ", totalVenta=" + totalVenta + ", pedido=" + pedido + "]";
+	}
+
 }

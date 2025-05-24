@@ -9,125 +9,159 @@ import java.time.LocalTime;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Pedido extends Base{
-    private LocalTime horaEstimadaFinalizacion;
-    private Double total;
-    private Double totalCosto;
-    private Estado estado;
-    private TipoEnvio tipoEnvio;
-    private FormaPago formaPago;
-    private LocalDate fechaPedido;
-    private Set<DetallePedido> detallePedido = new HashSet<>();;
-    private Domicilio domicilio;
-    private Sucursal sucursal;
-    private Factura factura;
-    private Cliente cliente;
+public class Pedido extends Base {
+	private LocalTime horaEstimadaFinalizacion;
+	private Double total;
+	private Double totalCosto;
+	private Estado estado;
+	private TipoEnvio tipoEnvio;
+	private FormaPago formaPago;
+	private LocalDate fechaPedido;
+	private Set<DetallePedido> detallePedido = new HashSet<>();;
+	private Domicilio domicilio;
+	private Sucursal sucursal;
+	private Factura factura;
 
-    //Constructor
-    public Pedido(LocalTime horaEstimadaFinalizacion, Double total, Double totalCosto, Estado estado, TipoEnvio tipoEnvio, FormaPago formaPago, LocalDate fechaPedido) {
-        this.horaEstimadaFinalizacion = horaEstimadaFinalizacion;
-        this.total = total;
-        this.totalCosto = totalCosto;
-        this.estado = estado;
-        this.tipoEnvio = tipoEnvio;
-        this.formaPago = formaPago;
-        this.fechaPedido = fechaPedido;
-    }
+	// Constructor
 
-    //Getter y Setter
-    public LocalTime getHoraEstimadaFinalizacion() {
-        return horaEstimadaFinalizacion;
-    }
+	public Pedido(long id, LocalTime horaEstimadaFinalizacion, Double total, Double totalCosto, Estado estado,
+			TipoEnvio tipoEnvio, FormaPago formaPago, LocalDate fechaPedido, Set<DetallePedido> detallePedido,
+			Domicilio domicilio, Sucursal sucursal, Factura factura) {
+		super(id);
+		this.horaEstimadaFinalizacion = horaEstimadaFinalizacion;
+		this.total = total;
+		this.totalCosto = totalCosto;
+		this.estado = estado;
+		this.tipoEnvio = tipoEnvio;
+		this.formaPago = formaPago;
+		this.fechaPedido = fechaPedido;
+		this.detallePedido = detallePedido;
+		this.domicilio = domicilio;
+		this.sucursal = sucursal;
+		this.factura = factura;
+	}
 
-    public void setHoraEstimadaFinalizacion(LocalTime horaEstimadaFinalizacion) {
-        this.horaEstimadaFinalizacion = horaEstimadaFinalizacion;
-    }
+	public Pedido(long id, LocalTime horaEstimadaFinalizacion, Double total, Double totalCosto, Estado estado,
+			TipoEnvio tipoEnvio, FormaPago formaPago, LocalDate fechaPedido, Domicilio domicilio, Sucursal sucursal,
+			Factura factura) {
+		super(id);
+		this.horaEstimadaFinalizacion = horaEstimadaFinalizacion;
+		this.total = total;
+		this.totalCosto = totalCosto;
+		this.estado = estado;
+		this.tipoEnvio = tipoEnvio;
+		this.formaPago = formaPago;
+		this.fechaPedido = fechaPedido;
+		this.domicilio = domicilio;
+		this.sucursal = sucursal;
+		this.factura = factura;
+	}
 
-    public Double getTotal() {
-        return total;
-    }
+	// Getter y Setter
+	public LocalTime getHoraEstimadaFinalizacion() {
+		return horaEstimadaFinalizacion;
+	}
 
-    public void setTotal(Double total) {
-        this.total = total;
-    }
+	public void setHoraEstimadaFinalizacion(LocalTime horaEstimadaFinalizacion) {
+		this.horaEstimadaFinalizacion = horaEstimadaFinalizacion;
+	}
 
-    public Double getTotalCosto() {
-        return totalCosto;
-    }
+	public Double getTotal() {
+		return total;
+	}
 
-    public void setTotalCosto(Double totalCosto) {
-        this.totalCosto = totalCosto;
-    }
+	public void setTotal(Double total) {
+		this.total = total;
+	}
 
-    public Estado getEstado() {
-        return estado;
-    }
+	public Double getTotalCosto() {
+		return totalCosto;
+	}
 
-    public void setEstado(Estado estado) {
-        this.estado = estado;
-    }
+	public void setTotalCosto(Double totalCosto) {
+		this.totalCosto = totalCosto;
+	}
 
-    public TipoEnvio getTipoEnvio() {
-        return tipoEnvio;
-    }
+	public Estado getEstado() {
+		return estado;
+	}
 
-    public void setTipoEnvio(TipoEnvio tipoEnvio) {
-        this.tipoEnvio = tipoEnvio;
-    }
+	public void setEstado(Estado estado) {
+		this.estado = estado;
+	}
 
-    public FormaPago getFormaPago() {
-        return formaPago;
-    }
+	public TipoEnvio getTipoEnvio() {
+		return tipoEnvio;
+	}
 
-    public void setFormaPago(FormaPago formaPago) {
-        this.formaPago = formaPago;
-    }
+	public void setTipoEnvio(TipoEnvio tipoEnvio) {
+		this.tipoEnvio = tipoEnvio;
+	}
 
-    public LocalDate getFechaPedido() {
-        return fechaPedido;
-    }
+	public FormaPago getFormaPago() {
+		return formaPago;
+	}
 
-    public void setFechaPedido(LocalDate fechaPedido) {
-        this.fechaPedido = fechaPedido;
-    }
+	public void setFormaPago(FormaPago formaPago) {
+		this.formaPago = formaPago;
+	}
 
-    public Set<DetallePedido> getDetallePedido() {
-        return detallePedido;
-    }
+	public LocalDate getFechaPedido() {
+		return fechaPedido;
+	}
 
-    public void setDetallePedido(Set<DetallePedido> detallePedido) {
-        this.detallePedido = detallePedido;
-    }
+	public void setFechaPedido(LocalDate fechaPedido) {
+		this.fechaPedido = fechaPedido;
+	}
 
-    public Domicilio getDomicilio() {
-        return domicilio;
-    }
+	public Set<DetallePedido> getDetallePedido() {
+		return detallePedido;
+	}
 
-    public void setDomicilio(Domicilio domicilio) {
-        this.domicilio = domicilio;
-    }
+	public void setDetallePedido(Set<DetallePedido> detallePedido) {
+		this.detallePedido = detallePedido;
+	}
 
-    public Sucursal getSucursal() {
-        return sucursal;
-    }
+	public Domicilio getDomicilio() {
+		return domicilio;
+	}
 
-    public void setSucursal(Sucursal sucursal) {
-        this.sucursal = sucursal;
-    }
+	public void setDomicilio(Domicilio domicilio) {
+		this.domicilio = domicilio;
+	}
 
-    public Factura getFactura() {
-        return factura;
-    }
+	public Sucursal getSucursal() {
+		return sucursal;
+	}
 
-    public void setFactura(Factura factura) {
-        this.factura = factura;
-    }
+	public void setSucursal(Sucursal sucursal) {
+		this.sucursal = sucursal;
+	}
 
-    public Cliente getCliente() {
-        return cliente;
-    }
+	public Factura getFactura() {
+		return factura;
+	}
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
+	public void setFactura(Factura factura) {
+		this.factura = factura;
+	}
+
+	// Metodo
+
+	public void agregarDetallePedido(DetallePedido detalle) {
+		detallePedido.add(detalle);
+	}
+
+	public void removerDetallePedido(DetallePedido detalle) {
+		detallePedido.remove(detalle);
+	}
+
+	@Override
+	public String toString() {
+		return "\nPedido [horaEstimadaFinalizacion=" + horaEstimadaFinalizacion + ", total=" + total + ", totalCosto="
+				+ totalCosto + ", estado=" + estado + ", tipoEnvio=" + tipoEnvio + ", formaPago=" + formaPago
+				+ ", fechaPedido=" + fechaPedido + ", detallePedido=" + detallePedido + ", domicilio=" + domicilio
+				+ ", sucursal=" + sucursal + ", factura=" + factura + "]";
+	}
+
 }
