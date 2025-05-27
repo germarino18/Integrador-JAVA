@@ -3,51 +3,89 @@ package Entities;
 import java.util.HashSet;
 import java.util.Set;
 
-public class ArticuloManufacturado extends Articulo{
-    private String descripcion;
-    private int tiempoEstimadoMinutos;
-    private String preparacion;
-    private Set<ArticuloManufacturadoDetalle> detalles = new HashSet<>();
+public class ArticuloManufacturado extends Articulo {
+	private String descripcion;
+	private int tiempoEstimadoMinutos;
+	private String preparacion;
+	private Set<ArticuloManufacturadoDetalle> detalles = new HashSet<>();
 
-    //Constructor
-    public ArticuloManufacturado(String denominacion, Double precioVenta, String descripcion, int tiempoEstimadoMinutos, String preparacion) {
-        super(denominacion, precioVenta);
-        this.descripcion = descripcion;
-        this.tiempoEstimadoMinutos = tiempoEstimadoMinutos;
-        this.preparacion = preparacion;
-    }
+	// Constructor
 
-    //Getter y Setter
-    public String getDescripcion() {
-        return descripcion;
-    }
+	public ArticuloManufacturado(long id, String denominacion, Double precioVenta, UnidadMedida unidad,
+			Set<Imagen> imagenes, String descripcion, int tiempoEstimadoMinutos, String preparacion) {
+		super(id, denominacion, precioVenta, unidad, imagenes);
+		this.descripcion = descripcion;
+		this.tiempoEstimadoMinutos = tiempoEstimadoMinutos;
+		this.preparacion = preparacion;
+	}
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
+	public ArticuloManufacturado(long id, String denominacion, Double precioVenta, UnidadMedida unidad,
+			Set<Imagen> imagenes, String descripcion, int tiempoEstimadoMinutos, String preparacion,
+			Set<ArticuloManufacturadoDetalle> detalles) {
+		super(id, denominacion, precioVenta, unidad, imagenes);
+		this.descripcion = descripcion;
+		this.tiempoEstimadoMinutos = tiempoEstimadoMinutos;
+		this.preparacion = preparacion;
+		this.detalles = detalles;
+	}
 
-    public int getTiempoEstimadoMinutos() {
-        return tiempoEstimadoMinutos;
-    }
+	public ArticuloManufacturado(long id, String denominacion, Double precioVenta, UnidadMedida unidad,
+			String descripcion, int tiempoEstimadoMinutos, String preparacion) {
+		super(id, denominacion, precioVenta, unidad);
+		this.descripcion = descripcion;
+		this.tiempoEstimadoMinutos = tiempoEstimadoMinutos;
+		this.preparacion = preparacion;
+	}
+	
+	
 
-    public void setTiempoEstimadoMinutos(int tiempoEstimadoMinutos) {
-        this.tiempoEstimadoMinutos = tiempoEstimadoMinutos;
-    }
+	// Getter y Setter
+	public String getDescripcion() {
+		return descripcion;
+	}
 
-    public String getPreparacion() {
-        return preparacion;
-    }
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
 
-    public void setPreparacion(String preparacion) {
-        this.preparacion = preparacion;
-    }
+	public int getTiempoEstimadoMinutos() {
+		return tiempoEstimadoMinutos;
+	}
 
-    @Override
-    public Set<ArticuloManufacturadoDetalle> getDetalles() {
-        return detalles;
-    }
+	public void setTiempoEstimadoMinutos(int tiempoEstimadoMinutos) {
+		this.tiempoEstimadoMinutos = tiempoEstimadoMinutos;
+	}
 
-    public void setDetalles(Set<ArticuloManufacturadoDetalle> detalles) {
-        this.detalles = detalles;
-    }
+	public String getPreparacion() {
+		return preparacion;
+	}
+
+	public void setPreparacion(String preparacion) {
+		this.preparacion = preparacion;
+	}
+
+	public Set<ArticuloManufacturadoDetalle> getDetallesArticuloManufacturadoDetalle() {
+		return detalles;
+	}
+
+	public void setDetallesArticuloManufacturadoDetalle(Set<ArticuloManufacturadoDetalle> detalles) {
+		this.detalles = detalles;
+	}
+
+	// Metodos
+
+	public void agregarDetalle(ArticuloManufacturadoDetalle detalle) {
+		detalles.add(detalle);
+	}
+
+	public void removerDetalle(ArticuloManufacturadoDetalle detalle) {
+		detalles.remove(detalle);
+	}
+
+	@Override
+	public String toString() {
+		return "\nArticuloManufacturado [descripcion=" + descripcion + ", tiempoEstimadoMinutos="
+				+ tiempoEstimadoMinutos + ", preparacion=" + preparacion + ", detalles=" + detalles + "]";
+	}
+
 }

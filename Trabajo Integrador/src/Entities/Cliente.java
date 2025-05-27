@@ -1,99 +1,191 @@
 package Entities;
 
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
-public class Cliente extends Base{
-    private String nombre;
-    private String apellido;
-    private String telefono;
-    private String email;
-    private LocalDate fechaNacimiento;
-    private Set<Pedido> pedidos = new HashSet<>();;
-    private Set<Domicilio> domicilio = new HashSet<>();;
-    private Imagen imagen;
-    private Usuario usuario;
+public class Cliente extends Base {
+	private String nombre;
+	private String apellido;
+	private String telefono;
+	private String email;
+	private LocalDate fechaNacimiento;
+	private Set<Pedido> pedidos = new HashSet<>();
+	private Set<Domicilio> domicilios = new HashSet<>();
+	private Imagen imagen;
+	private Usuario usuario;
 
-    //Constructor
-    public Cliente(String nombre, String apellido, String telefono, String email, LocalDate fechaNacimiento) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.telefono = telefono;
-        this.email = email;
-        this.fechaNacimiento = fechaNacimiento;
-    }
+	// Constructor
+	
+	public Cliente(long id, String nombre, String apellido, String telefono, String email, LocalDate fechaNacimiento,
+			Set<Pedido> pedidos, Set<Domicilio> domicilio, Imagen imagen, Usuario usuario) {
+		super(id);
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.telefono = telefono;
+		this.email = email;
+		this.fechaNacimiento = fechaNacimiento;
+		this.pedidos = pedidos;
+		this.domicilios = domicilio;
+		this.imagen = imagen;
+		this.usuario = usuario;
+	}
 
-    //Getter y Setter
-    public String getNombre() {
-        return nombre;
-    }
+	public Cliente(long id, String nombre, String apellido, String telefono, String email, LocalDate fechaNacimiento) {
+		super(id);
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.telefono = telefono;
+		this.email = email;
+		this.fechaNacimiento = fechaNacimiento;
+	}
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+	public Cliente(long id, String nombre, String apellido, String telefono, String email, LocalDate fechaNacimiento,
+			Set<Pedido> pedidos, Set<Domicilio> domicilio, Usuario usuario) {
+		super(id);
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.telefono = telefono;
+		this.email = email;
+		this.fechaNacimiento = fechaNacimiento;
+		this.pedidos = pedidos;
+		this.domicilios = domicilio;
+		this.usuario = usuario;
+	}
 
-    public String getApellido() {
-        return apellido;
-    }
+	public Cliente(long id, String nombre, String apellido, String telefono, String email, LocalDate fechaNacimiento,
+			Set<Pedido> pedidos, Set<Domicilio> domicilio, Imagen imagen) {
+		super(id);
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.telefono = telefono;
+		this.email = email;
+		this.fechaNacimiento = fechaNacimiento;
+		this.pedidos = pedidos;
+		this.domicilios = domicilio;
+		this.imagen = imagen;
+	}
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
+	public Cliente(long id, String nombre, String apellido, String telefono, String email, LocalDate fechaNacimiento,
+			Imagen imagen, Usuario usuario) {
+		super(id);
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.telefono = telefono;
+		this.email = email;
+		this.fechaNacimiento = fechaNacimiento;
+		this.imagen = imagen;
+		this.usuario = usuario;
+	}
 
-    public String getTelefono() {
-        return telefono;
-    }
+	public Cliente(long id, String nombre, String apellido, String telefono, String email, LocalDate fechaNacimiento,
+			Set<Domicilio> domicilio, Imagen imagen, Usuario usuario) {
+		super(id);
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.telefono = telefono;
+		this.email = email;
+		this.fechaNacimiento = fechaNacimiento;
+		this.domicilios = domicilio;
+		this.imagen = imagen;
+		this.usuario = usuario;
+	}
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
+	// Getter y Setter
+	public String getNombre() {
+		return nombre;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public String getApellido() {
+		return apellido;
+	}
 
-    public LocalDate getFechaNacimiento() {
-        return fechaNacimiento;
-    }
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
 
-    public void setFechaNacimiento(LocalDate fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
-    }
+	public String getTelefono() {
+		return telefono;
+	}
 
-    public Set<Pedido> getPedidos() {
-        return pedidos;
-    }
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
 
-    public void setPedidos(Set<Pedido> pedidos) {
-        this.pedidos = pedidos;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public Set<Domicilio> getDomicilio() {
-        return domicilio;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public void setDomicilio(Set<Domicilio> domicilio) {
-        this.domicilio = domicilio;
-    }
+	public LocalDate getFechaNacimiento() {
+		return fechaNacimiento;
+	}
 
-    public Imagen getImagen() {
-        return imagen;
-    }
+	public void setFechaNacimiento(LocalDate fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
+	}
 
-    public void setImagen(Imagen imagen) {
-        this.imagen = imagen;
-    }
+	public Set<Pedido> getPedidos() {
+		return pedidos;
+	}
 
-    public Usuario getUsuario() {
-        return usuario;
-    }
+	public void setPedidos(Set<Pedido> pedidos) {
+		this.pedidos = pedidos;
+	}
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
+	public Set<Domicilio> getDomicilio() {
+		return domicilios;
+	}
+
+	public void setDomicilio(Set<Domicilio> domicilio) {
+		this.domicilios = domicilio;
+	}
+
+	public Imagen getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(Imagen imagen) {
+		this.imagen = imagen;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	// Metodos
+
+	public void agregarDomicilio(Domicilio domicilio) {
+		domicilios.add(domicilio);
+	}
+
+	public void removerDomicilio(Domicilio domicilio) {
+		domicilios.remove(domicilio);
+	}
+
+	public void agregarPedido(Pedido pedido) {
+		pedidos.add(pedido);
+	}
+
+	public void removerPedido(Pedido pedido) {
+		pedidos.remove(pedido);
+	}
+
+	@Override
+	public String toString() {
+		return "\nCliente [nombre=" + nombre + ", apellido=" + apellido + ", telefono=" + telefono + ", email=" + email
+				+ ", fechaNacimiento=" + fechaNacimiento + ", pedidos=" + pedidos + ", domicilios=" + domicilios
+				+ ", imagen=" + imagen + ", usuario=" + usuario + "]";
+	}
+
 }

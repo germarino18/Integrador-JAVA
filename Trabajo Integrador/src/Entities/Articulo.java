@@ -4,74 +4,73 @@ import java.util.HashSet;
 import java.util.Set;
 
 public abstract class Articulo extends Base {
-    protected String denominacion;
-    protected Double precioVenta;
-    private Set<Promocion> promociones = new HashSet<>();
-    private UnidadMedida unidad;
-    private Set<Imagen> imagenes = new HashSet<>();;
-    private Categoria categoriaArticulo;
-    private Set<DetallePedido> detalles;
+	protected String denominacion;
+	protected Double precioVenta;
+	private UnidadMedida unidad;
+	private Set<Imagen> imagenes = new HashSet<>();
 
-    //Constructor
-    public Articulo(String denominacion, Double precioVenta) {
-        this.denominacion = denominacion;
-        this.precioVenta = precioVenta;
-    }
+	// Constructor
 
-    //Getter y Setter
-    public String getDenominacion() {
-        return denominacion;
-    }
+	public Articulo(long id, String denominacion, Double precioVenta, UnidadMedida unidad, Set<Imagen> imagenes) {
+		super(id);
+		this.denominacion = denominacion;
+		this.precioVenta = precioVenta;
+		this.unidad = unidad;
+		this.imagenes = imagenes;
+	}
 
-    public void setDenominacion(String denominacion) {
-        this.denominacion = denominacion;
-    }
+	public Articulo(long id, String denominacion, Double precioVenta, UnidadMedida unidad) {
+		super(id);
+		this.denominacion = denominacion;
+		this.precioVenta = precioVenta;
+		this.unidad = unidad;
+	}
 
-    public Double getPrecioVenta() {
-        return precioVenta;
-    }
+	// Getter y Setter
+	public String getDenominacion() {
+		return denominacion;
+	}
 
-    public void setPrecioVenta(Double precioVenta) {
-        this.precioVenta = precioVenta;
-    }
+	public void setDenominacion(String denominacion) {
+		this.denominacion = denominacion;
+	}
 
-    public Set<Promocion> getPromociones() {
-        return promociones;
-    }
+	public Double getPrecioVenta() {
+		return precioVenta;
+	}
 
-    public void setPromociones(Set<Promocion> promociones) {
-        this.promociones = promociones;
-    }
+	public void setPrecioVenta(Double precioVenta) {
+		this.precioVenta = precioVenta;
+	}
 
-    public UnidadMedida getUnidad() {
-        return unidad;
-    }
+	public UnidadMedida getUnidad() {
+		return unidad;
+	}
 
-    public void setUnidad(UnidadMedida unidad) {
-        this.unidad = unidad;
-    }
+	public void setUnidad(UnidadMedida unidad) {
+		this.unidad = unidad;
+	}
 
-    public Set<Imagen> getImagenes() {
-        return imagenes;
-    }
+	public Set<Imagen> getImagenes() {
+		return imagenes;
+	}
 
-    public void setImagenes(Set<Imagen> imagenes) {
-        this.imagenes = imagenes;
-    }
+	public void setImagenes(Set<Imagen> imagenes) {
+		this.imagenes = imagenes;
+	}
 
-    public Categoria getCategoriaArticulo() {
-        return categoriaArticulo;
-    }
+	public void agregarImagen(Imagen imagen) {
+		imagenes.add(imagen);
+	}
 
-    public void setCategoriaArticulo(Categoria categoriaArticulo) {
-        this.categoriaArticulo = categoriaArticulo;
-    }
+	public void removerImagen(Imagen imagen) {
+		imagenes.remove(imagen);
+	}
 
-    public Set<DetallePedido> getDetalles() {
-        return detalles;
-    }
+	@Override
+	public String toString() {
+		return "\nArticulo [denominacion=" + denominacion + ", precioVenta=" + precioVenta + ", unidad=" + unidad
+				+ ", imagenes=" + imagenes + "]";
+	}
 
-    public void setDetalles(Set<DetallePedido> detalles) {
-        this.detalles = detalles;
-    }
 }

@@ -1,38 +1,47 @@
 package Entities;
 
-public class Usuario extends Base{
-    private String auth0Id;
-    private String username;
-    private Cliente cliente;
+public class Usuario extends Base {
+	private String auth0Id;
+	private String username;
+	private Cliente cliente;
 
-    //Constructor
-    public Usuario(String auth0Id, String username) {
-        this.auth0Id = auth0Id;
-        this.username = username;
-    }
+	// Constructor
 
-    //Getter y Setter
-    public String getAuth0Id() {
-        return auth0Id;
-    }
+	public Usuario(long id, String auth0Id, String username, Cliente cliente) {
+		super(id);
+		this.auth0Id = auth0Id;
+		this.username = username;
+		this.cliente = cliente;
+	}
 
-    public void setAuth0Id(String auth0Id) {
-        this.auth0Id = auth0Id;
-    }
+	// Getter y Setter
+	public String getAuth0Id() {
+		return auth0Id;
+	}
 
-    public String getUsername() {
-        return username;
-    }
+	public void setAuth0Id(String auth0Id) {
+		this.auth0Id = auth0Id;
+	}
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+	public String getUsername() {
+		return username;
+	}
 
-    public Cliente getCliente() {
-        return cliente;
-    }
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+	@Override
+	public String toString() {
+		return "\nUsuario [auth0Id=" + auth0Id + ", username=" + username + ", cliente=" + cliente + "]";
+	}
+
 }

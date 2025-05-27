@@ -1,46 +1,27 @@
 package Entities;
 
-public class Imagen extends Base{
-    private String denominacion;
-    private Articulo articulo;
-    private Promocion promocion;
-    private Cliente cliente;
+public class Imagen extends Base {
+	private String denominacion;
 
-    //Constructor
-    public Imagen(String denominacion) {
-        this.denominacion = denominacion;
-    }
+	// Constructor
 
-    //Getter y Setter
-    public String getDenominacion() {
-        return denominacion;
-    }
+	public Imagen(long id, String denominacion) {
+		super(id);
+		this.denominacion = denominacion;
+	}
 
-    public void setDenominacion(String denominacion) {
-        this.denominacion = denominacion;
-    }
+	// Getter y Setter
+	public String getDenominacion() {
+		return denominacion;
+	}
 
-    public Articulo getArticulo() {
-        return articulo;
-    }
+	public void setDenominacion(String denominacion) {
+		this.denominacion = denominacion;
+	}
 
-    public void setArticulo(Articulo articulo) {
-        this.articulo = articulo;
-    }
+	@Override
+	public String toString() {
+		return "\nImagen [denominacion=" + denominacion + "]";
+	}
 
-    public Promocion getPromocion() {
-        return promocion;
-    }
-
-    public void setPromocion(Promocion promocion) {
-        this.promocion = promocion;
-    }
-
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
 }

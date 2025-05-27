@@ -5,37 +5,57 @@ import java.util.List;
 import java.util.Set;
 
 public class Localidad extends Base {
-    private String nombre;
-    private Set<Domicilio> domicilios = new HashSet<>();;
-    private Provincia provincia;
+	private String nombre;
+	private Set<Domicilio> domicilios = new HashSet<>();
 
-    //Constructor
-    public Localidad(String nombre) {
-        this.nombre = nombre;
-    }
+	// Constructor
+	
+	public Localidad(long id, String nombre, Set<Domicilio> domicilios) {
+		super(id);
+		this.nombre = nombre;
+		this.domicilios = domicilios;
+	}
 
-    //Getter y Setter
-    public String getNombre() {
-        return nombre;
-    }
+	public Localidad(long id, String nombre) {
+		super(id);
+		this.nombre = nombre;
+	}
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+	public Localidad(long id) {
+		super(id);
+	}
 
-    public Set<Domicilio> getDomicilios() {
-        return domicilios;
-    }
+	// Getter y Setter
 
-    public void setDomicilios(Set<Domicilio> domicilios) {
-        this.domicilios = domicilios;
-    }
+	public String getNombre() {
+		return nombre;
+	}
 
-    public Provincia getProvincia() {
-        return provincia;
-    }
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 
-    public void setProvincia(Provincia provincia) {
-        this.provincia = provincia;
-    }
+	public Set<Domicilio> getDomicilios() {
+		return domicilios;
+	}
+
+	public void setDomicilios(Set<Domicilio> domicilios) {
+		this.domicilios = domicilios;
+	}
+
+	// Metodos
+
+	public void agregarDomicilio(Domicilio domicilio) {
+		domicilios.add(domicilio);
+	}
+
+	public void removerDomicilio(Domicilio domicilio) {
+		domicilios.remove(domicilio);
+	}
+
+	@Override
+	public String toString() {
+		return "\nLocalidad [nombre=" + nombre + ", domicilios=" + domicilios + "]";
+	}
+
 }

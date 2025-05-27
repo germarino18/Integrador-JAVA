@@ -1,47 +1,54 @@
 package Entities;
 
-public class DetallePedido extends Base{
-    private int cantidad;
-    private double subTotal;
-    private Articulo articulo;
-    private Pedido pedido;
+public class DetallePedido extends Base {
+	private int cantidad;
+	private double subTotal;
+	private Articulo articulo;
 
-    //Constructor
-    public DetallePedido(int cantidad, double subTotal) {
-        this.cantidad = cantidad;
-        this.subTotal = subTotal;
-    }
+	// Constructor
 
-    //Getter y Setter
-    public int getCantidad() {
-        return cantidad;
-    }
+	public DetallePedido(long id, int cantidad, double subTotal, Articulo articulo) {
+		super(id);
+		this.cantidad = cantidad;
+		this.subTotal = subTotal;
+		this.articulo = articulo;
+	}
 
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
-    }
+	public DetallePedido(long id, int cantidad, double subTotal) {
+		super(id);
+		this.cantidad = cantidad;
+		this.subTotal = subTotal;
+	}
 
-    public double getSubTotal() {
-        return subTotal;
-    }
+	// Getter y Setter
 
-    public void setSubTotal(double subTotal) {
-        this.subTotal = subTotal;
-    }
+	public int getCantidad() {
+		return cantidad;
+	}
 
-    public Articulo getArticulo() {
-        return articulo;
-    }
+	public void setCantidad(int cantidad) {
+		this.cantidad = cantidad;
+	}
 
-    public void setArticulo(Articulo articulo) {
-        this.articulo = articulo;
-    }
+	public double getSubTotal() {
+		return subTotal;
+	}
 
-    public Pedido getPedido() {
-        return pedido;
-    }
+	public void setSubTotal(double subTotal) {
+		this.subTotal = subTotal;
+	}
 
-    public void setPedido(Pedido pedido) {
-        this.pedido = pedido;
-    }
+	public Articulo getArticulo() {
+		return articulo;
+	}
+
+	public void setArticulo(Articulo articulo) {
+		this.articulo = articulo;
+	}
+
+	@Override
+	public String toString() {
+		return "\nDetallePedido [cantidad=" + cantidad + ", subTotal=" + subTotal + ", articulo=" + articulo + "]";
+	}
+
 }
