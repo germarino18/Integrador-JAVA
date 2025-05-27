@@ -53,7 +53,7 @@ public class Domicilio extends Base {
 	}
 
 	public void setLocalidad(Localidad localidad) {
-		this.localidad = new Localidad(0); //se inicializa el ID localidad en 0
+		this.localidad = localidad; //se inicializa el ID localidad en 0 (LO CAMBIE, LOCALIDAD ERA NULL)
 	}
 
 	@Override
