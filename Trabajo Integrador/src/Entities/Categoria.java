@@ -22,6 +22,11 @@ public class Categoria extends Base {
 		this.articulos = articulos;
 	}
 
+	public Categoria(long id, String denominacion) {
+		super(id);
+		this.denominacion = denominacion;
+	}
+
 	// Getter y Setter
 
 	public String getDenominacion() {
