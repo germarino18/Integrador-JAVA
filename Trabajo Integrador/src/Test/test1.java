@@ -21,13 +21,14 @@ public class test1 {
 		Localidad godoyCruz = new Localidad(4, "Godoy Cruz");
 
 		// Domicilios
-		Domicilio sanMartinSur = new Domicilio(3, "San Martin Sur", 2896, 5500);
+		Domicilio sanMartinSur = new Domicilio(3, "San Martin Sur", 2896, 5500, godoyCruz);
 
 		// Agregar datos geograficos
-		sanMartinSur.setLocalidad(godoyCruz);
+		//sanMartinSur.setLocalidad(godoyCruz); Se puede quitar?
 		argentina.agregarProvincia(mendoza);
 		mendoza.agregarLocalidad(godoyCruz);
 		godoyCruz.agregarDomicilio(sanMartinSur);
+		godoyCruz.verDomicilios(); //Probando ver los domicilios de la Localidad
 
 		// -------------------------------------------------------
 		// DATOS DE EMPRESA
@@ -73,7 +74,7 @@ public class test1 {
 		
 		//Agregar detalle a los articulos
 		harina.agregarDetalle(new ArticuloManufacturadoDetalle(5));
-		empanada.agregarDetalle(new ArticuloManufacturadoDetalle(10));
+		empanada.agregarDetalle(new ArticuloManufacturadoDetalle(10)); //Faltan insumos
 		
 		//Muestro articulos
 		System.out.println(harina.toString() + "\n" + empanada.toString());
@@ -81,12 +82,62 @@ public class test1 {
 		
 		// -------------------------------------------------------
 		// PROMOCIÓN
-		
+		// Crear Promocion
+		Promocion promocion = new Promocion(13, "Promocion empanadas", LocalDate.of(2025, 05, 25), LocalDate.of(2025, 07, 25),
+				LocalTime.of(00, 00), LocalTime.of(00, 00), "Empanadas Recargo Darin", 48000.00, TipoPromocion.PROMOCION1);
+
+		//Agregando articulo e imagen
+		Imagen imagen = new Imagen(14, "Empanada de oro");
+		promocion.agregarArticulo(empanada);
+		promocion.agregarImagen(imagen);
+
+		//Mostrar promocion
+		System.out.println(promocion);
+
+		//Removiendo articulo e imagen
+		promocion.removerArticulo(empanada);
+		promocion.removerImagen(imagen);
+
+		System.out.println(promocion);
+
 		// -------------------------------------------------------
 		// CATEGORÍA
-		
+		//Crear categoria
+		Categoria categoria = new Categoria(15, "Comestible");
+
+		//Agregando articulo y subcategoria
+		categoria.agregarArticulo(empanada);
+		categoria.agregarSubCategoria(new Categoria(16, "Rotiseria"));
+
+		//Mostrar Categoria
+		System.out.println(categoria);
+
+		//Removiendo articulo y subcategoria
+		categoria.removerArticulo(empanada);
+		categoria.removerSubCategoria(new Categoria(16, "Rotiseria"));
+
+		System.out.println(categoria);
+
 		// -------------------------------------------------------
 		// PEDIDO
+		//Crear pedido
+		Factura factura = new Factura(17, LocalDate.of(2025, 05, 27), 123, 456, "juanito.mp",
+				"Transferencia", FormaPago.MERCADOPAGO, 55000.00);
+		Pedido pedido = new Pedido(18, LocalTime.of(21, 30), 55000.00, 48000.00, Estado.PREPARACION, TipoEnvio.DELIVERY, FormaPago.MERCADOPAGO,
+				LocalDate.of(2025, 05, 27), sanMartinSur, sucMendoza, factura);
+
+		//Agregando detalles del pedido
+		DetallePedido detallePedido = new DetallePedido(19, 12, 48000.00, empanada);
+		pedido.agregarDetallePedido(detallePedido);
+
+		//Mostrar pedido
+		System.out.println(pedido);
+
+		//Removiendo detalles
+		pedido.removerDetallePedido(detallePedido);
+
+		System.out.println(pedido);
+
 
 	}
 

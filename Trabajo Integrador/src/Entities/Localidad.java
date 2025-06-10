@@ -53,9 +53,15 @@ public class Localidad extends Base {
 		domicilios.remove(domicilio);
 	}
 
+	public void verDomicilios(){
+		for (Domicilio domicilio : domicilios){
+			System.out.println(domicilio);
+		}
+	}
+
 	@Override
 	public String toString() {
-		return "\nLocalidad [nombre=" + nombre + ", domicilios=" + domicilios + "]";
+		return "\nLocalidad [nombre=" + nombre +/* ", domicilios=" + domicilios + */"]"; //Comente para evitar el bucle infinito
 	}
 
 }
